@@ -30,7 +30,7 @@ mongoose
 //     console.log("Data connection successful!");
 //   });
 const port = process.env.PORT || 8000;
-const server = app.listen(port, () =>
+const server = app.listen(port, HOST, () =>
   console.log("App is listening at port 8000")
 );
 process.on("unhandledRejection", (err) => {
