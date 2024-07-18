@@ -7,7 +7,8 @@ process.on("uncaughtException", (err) => {
 });
 const app = require("./app");
 dotenv.config({ path: "./config.env" });
-const DB = process.env.DATABASE;
+const DB = process.env.DATABASE
+);
 // Kết nối với data bằng server remote
 mongoose
   .connect(DB, {
