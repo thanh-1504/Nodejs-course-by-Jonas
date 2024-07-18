@@ -32,9 +32,9 @@ mongoose
 //   .then((con) => {
 //     console.log("Data connection successful!");
 //   });
-const port = process.env.PORT || 8000;
-console.log(port);
-const server = app.listen(port, () =>
+const PORT = process.env.PORT || 8000;
+console.log(PORT);
+const server = app.listen(PORT, () =>
   console.log("App is listening at port 8000")
 );
 process.on("unhandledRejection", (err) => {
