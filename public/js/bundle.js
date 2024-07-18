@@ -10281,7 +10281,7 @@
     try {
       const res = await axios_default({
         method: "POST",
-        url: "http://127.0.0.1:8000/api/v1/users/login",
+        url: "/v1/users/login",
         data: { email, password }
       });
       if (res.data.status === "success") {
@@ -10300,7 +10300,7 @@
     try {
       const res = await axios_default({
         method: "GET",
-        url: "http://127.0.0.1:8000/api/v1/users/logout"
+        url: "/v1/users/logout"
       });
       if (res.data.status === "success") {
         showAlert("success", "Log out successfully");
@@ -10349,7 +10349,7 @@
   // public/js/updateSetting.js
   var updateSetting = async (type, data) => {
     try {
-      const url = type === "password" ? "http://127.0.0.1:8000/api/v1/users/updatePassword" : "http://127.0.0.1:8000/api/v1/users/updateMe";
+      const url = type === "password" ? "/api/v1/users/updatePassword" : "/api/v1/users/updateMe";
       const res = await axios_default({
         method: "PATCH",
         url,
@@ -10370,7 +10370,7 @@
   var bookingTour = async (tourId) => {
     try {
       const response = await axios_default.get(
-        `http://127.0.0.1:8000/api/v1/bookings/checkout-session/${tourId}`
+        `/api/v1/bookings/checkout-session/${tourId}`
       );
       if (response.data.status === "success") {
         window.location.href = response.data.url;

@@ -14,7 +14,7 @@ server.on("request", (req, res) => {
     res.end();
   });
   readble.on("error", (err) => {
-    console.log(err);
+    // console.log(err);
     res.statusCode = 500;
     res.end("File not found!");
   });

@@ -13,9 +13,10 @@ server.on("request", (req, res) => {
   readble.on("end", () => {
     res.end();
   });
-  readble.on('error',(err)=> {
-    console.log(err);
-    sta
-  })
+  readble.on("error", (err) => {
+    // console.log(err);
+    res.statusCode = 500;
+    res.end("File not found!");
+  });
 });
 server.listen(8000, "localhost", () => console.log("listening at port 8000"));
