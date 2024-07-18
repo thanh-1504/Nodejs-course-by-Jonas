@@ -1,0 +1,8 @@
+Các bước để triển khai update password
+- Truy vấn xuống dbs để tìm kiếm user có tồn tại
+- Kiểm tra xem password hiện tại mà user đang nhập có đúng với password mà ta lưu trong dbs
+- Nếu đã kiểm tra 2 bước trên thì update password và passwordConfirm cho user
+- Log user và gửi JWT
+
+-- Ta sẽ kh dùng findByIdAndUpdate bởi vì nếu ta dùng method đó thì validation mà ta khai báo
+ở schema sẽ không hoạt động vì validation ở schema chỉ hoạt động thì save or create

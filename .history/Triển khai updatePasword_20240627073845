@@ -1,0 +1,4 @@
+Các bước để triển khai update password
+- Truy vấn xuống dbs để tìm kiếm user có tồn tại
+- Kiểm tra xem password hiện tại mà user đang nhập có đúng với password mà ta lưu trong dbs
+- Nếu 

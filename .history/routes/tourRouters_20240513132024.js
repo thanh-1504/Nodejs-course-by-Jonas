@@ -1,0 +1,71 @@
+const fs = require("fs");
+const express = require("express");
+const router = express.Router();
+// read Data
+const tour = JSON.parse(
+  fs.readFileSync(`${__dirname}/../dev-data/data/tour-simple.json`)
+);
+const getAlltour = (req, res) => {
+  console.log(req.requestTime);
+  res.status(200).json({
+    status: "success",
+    result: tour.length,
+    data: tour,
+  });
+};
+const getATour = (req, res) => {
+  const tour = tour.find((el) => el.id === +req.params.id);
+  if (!tour) {
+    res.status(404).json({
+      status: "fail",
+      message: "ID invalid",
+    });
+  }
+  res.status(200).json({
+    status: "success",
+    tour,
+  });
+};
+const createTour = (req, res) => {
+  const newID = tour[tour.length - 1].id + 1;
+  const newTour = Object.assign({ id: newID }, req.body);
+  tour.push(newTour);
+  fs.writeFile(
+    `${__dirname}/dev-data/data/tour-simple.json`,
+    JSON.stringify(tour),
+    (err) => {
+      res.status(201).json({
+        status: "success",
+        data: { tour: newTour },
+      });
+    }
+  );
+};
+const updateTour = (req, res) => {
+  if (+req.params.id > tour.length) {
+    res.status(404).json({
+      status: "fail",
+      message: "ID invalid",
+    });
+  }
+  res.status(200).json({
+    status: "success",
+    tour: "Updated tour here",
+  });
+};
+const deleteTour = (req, res) => {
+  if (+req.params > tour.length) {
+    res.status(404).json({
+      status: "fail",
+      message: "ID invalid",
+    });
+  }
+  res.status(204).json({
+    status: "success",
+    data: null,
+  });
+};
+
+router.route("/").get(getAlltour).post(createTour);
+router.route("/:id").get(getATour).patch(updateTour).delete(deleteTour);
+module.exports = router;

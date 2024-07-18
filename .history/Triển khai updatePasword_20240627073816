@@ -1,0 +1,3 @@
+Các bước để triển khai update password
+- Truy vấn xuống dbs để tìm kiếm user có tồn tại
+- Kiểm tra xem password 

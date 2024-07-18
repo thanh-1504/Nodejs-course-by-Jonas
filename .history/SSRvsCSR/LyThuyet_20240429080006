@@ -1,0 +1,9 @@
+SSR - Server side rendering
+- Thường dùng cho các trang web muốn tối ưu SEO để nằm trong top tìm kiếm của google,
+thông thường là những trang web đọc báo, bán hàng
+- Ưu diêm: Tối ưu CEO, việc truy cập lần đầu tiên sẽ rất nhanh
+- Nhược điểm: trải nghiệm người dùng chưa cao vì phải reload lại trang
+
+CSR: Client side rendering
+- Ưu điểm: Tăng trải nghiệm người dùng vì web không phải bị reload
+- Nhược điểm: chưa tối ưu được vấn đề CEO, lượt truy cập đầu tiên sẽ chậm hơn so với SS
