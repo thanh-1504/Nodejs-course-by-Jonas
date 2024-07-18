@@ -33,8 +33,8 @@ const corsOptions = {
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
-app.use(cors(corsOptions));
 // Cho phép thực hiện tất cả các request phức tạp cho mọi route
+app.use(cors(corsOptions));
 app.options("*", cors());
 app.use(compression());
 // if (process.env.NODE_ENV === "development") app.use(morgan("dev"));

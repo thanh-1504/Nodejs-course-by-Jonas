@@ -34,8 +34,7 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
-// Cho phép thực hiện tất cả các request phức tạp cho mọi route
-app.options("*", cors());
+app.options("*")
 app.use(compression());
 // if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 app.use(morgan("dev"));
