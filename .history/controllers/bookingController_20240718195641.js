@@ -67,7 +67,8 @@ exports.webhookCheckout = (req, res, next) => {
       req.body,
       signature,
       // process.env.STRIPE_WEBHOOK_SECRET
-      "whsec_sDBcVN3TxXuRvPc4VJQ9eTWKMqrRgWF6"
+      "whsec_sDBcVN3TxXuRvPc4VJQ9eTWKMqrRgWF6
+"
     );
   } catch (err) {
     return res.status(400).send(`Webhook error: ${err.message}`);
