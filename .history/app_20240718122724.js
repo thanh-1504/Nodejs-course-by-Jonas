@@ -29,7 +29,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(helmet({ contentSecurityPolicy: false }));
 const corsOptions = {
-  origin: ["http://localhost:8000", "https://natours-yeab.onrender.com/"],
+  origin: ["http://localhost:8000", ''],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
