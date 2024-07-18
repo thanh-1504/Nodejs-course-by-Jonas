@@ -34,7 +34,6 @@ app.use(helmet({ contentSecurityPolicy: false }));
 //   optionSuccessStatus: 200,
 // };
 // app.use(cors(corsOptions));
-app.use(cors());
 // Cho phép thực hiện tất cả các request phức tạp cho mọi route
 app.options("*", cors());
 app.use(compression());
