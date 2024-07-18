@@ -47,12 +47,6 @@ const limiter = rateLimit({
   message: "Too many request from this IP, please try again in an hour",
 });
 app.use("/api", limiter);
-// Data tới route này là data dạng chuỗi chứ kh phải dạng JSON
-app.post(
-  "/webhook-checkout",
-  express.raw({ type: "application/json" }),
-  bookingController.webhookCheckout
-);
 app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser());
 app.use(mongoSanitize());
@@ -77,6 +71,7 @@ app.use((req, res, next) => {
 
 // Routes
 // app.use("/api/v1/tours", tourRouter);
+app.post("/webhook-checkout", bookingController.webhookCheckout);
 
 app.use("/", viewRouter);
 app.use("/api/v1/tours", tourRouterWithMongoose);

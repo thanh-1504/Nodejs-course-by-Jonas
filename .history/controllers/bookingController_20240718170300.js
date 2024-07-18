@@ -2,7 +2,6 @@ const stripe = require("stripe")(
   "sk_test_51PcjWORsTmgy7LReLiDk1jsw2gnK7lGCda5ZJorFsSEPHjO1tovjXVcApZsCdB7iVe6AMtfN8xMzL1ibWdxuTgEA00SxDrYOkM"
 );
 const Tour = require("../models/tourModel");
-const User = require("../models/userModel");
 const AppError = require("../ultils/appError");
 const catchAsync = require("../ultils/catchAsync");
 const factory = require("../controllers/handlerFactory");
@@ -52,12 +51,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 //   res.redirect(req.originalUrl.split("?")[0]);
 // });
 
-const createBookingCheckout = catchAsync(async (session) => {
-  const tourId = session.client_reference_id;
-  const userId = (await User.findOne({ email: session.customer_email })).id;
-  const price = session.line_items[0].amount / 100;
-  await Booking.create({ tourId, userId, price });
-});
+const createBookingCheckout = async(session) => {};
 
 exports.webhookCheckout = (req, res, next) => {
   const signature = req.headers["stripe-signature"];
