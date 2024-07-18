@@ -6,7 +6,7 @@ export const handleLogin = async (email, password) => {
       method: "POST",
       url: "/v1/users/login",
       data: { email, password },
-      withCredentials: true,
+      with
     });
     if (res.data.status === "success") {
       showAlert("success", "Logged in successfully");
@@ -26,7 +26,6 @@ export const handleLogout = async () => {
     const res = await axios({
       method: "GET",
       url: "/v1/users/logout",
-      withCredentials: true,
     });
     if (res.data.status === "success") {
       showAlert("success", "Log out successfully");

@@ -26,7 +26,6 @@ export const handleLogout = async () => {
     const res = await axios({
       method: "GET",
       url: "/v1/users/logout",
-      withCredentials: true,
     });
     if (res.data.status === "success") {
       showAlert("success", "Log out successfully");
