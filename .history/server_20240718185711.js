@@ -30,7 +30,7 @@ mongoose
 //     console.log("Data connection successful!");
 //   });
 const port = process.env.PORT || 8000;
-const HOST = process.env.HOST || "0.0.0.0";
+const HOST = process.env.HOST || '0.0.0.0';
 const server = app.listen(port, HOST, () =>
   console.log("App is listening at port 8000")
 );
