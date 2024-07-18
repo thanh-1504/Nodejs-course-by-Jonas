@@ -10281,7 +10281,7 @@
     try {
       const res = await axios_default({
         method: "POST",
-        url: "/v1/users/login",
+        url: "/api/v1/users/login",
         data: { email, password }
       });
       if (res.data.status === "success") {
@@ -10300,7 +10300,7 @@
     try {
       const res = await axios_default({
         method: "GET",
-        url: "/v1/users/logout"
+        url: "/api/v1/users/logout"
       });
       if (res.data.status === "success") {
         showAlert("success", "Log out successfully");
