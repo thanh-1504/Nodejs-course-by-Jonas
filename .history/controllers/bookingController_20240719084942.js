@@ -59,10 +59,7 @@ const createBookingCheckout = async (session) => {
   const userId = "5c8a23c82f8fb814b56fa18d";
   // const price = session.display_items[0]?.amount / 100 || 3000;
   const price = 3000;
-  await Booking.create(
-    { tourId, userId, price },
-    { validateBeforeSave: false }
-  );
+  await Booking.create({ tourId, userId, price },{valid});
 };
 
 exports.webhookCheckout = (req, res, next) => {
